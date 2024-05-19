@@ -53,7 +53,7 @@ namespace ariel {
 
         }
 
-        bool Graph::operator<=(Graph &other) const{
+        bool Graph::operator<=(const Graph &other) const{
             return this->operator==(other) || this->operator<(other);
         }
 
@@ -63,7 +63,7 @@ namespace ariel {
             return false;
         }
 
-        bool Graph::operator>=(Graph &other) const{
+        bool Graph::operator>=(const Graph &other) const{
             return this->operator==(other) || this->operator>(other);
         }
 
@@ -75,7 +75,10 @@ namespace ariel {
 
 
         Graph& Graph::operator=(const Graph &other){
-            this->loadGraph(other.myGraph);
+            if(this!=&other) {
+                this->loadGraph(other.myGraph);
+                return *this;
+            }
             return *this;
         }
 
@@ -169,7 +172,8 @@ namespace ariel {
             g.loadGraph(this->myGraph);
             for(int i=0;i<size;i++){
                 for(int j=0;j<size;j++){
-                    this->myGraph[i][j]++;
+                    if(i!=j)
+                        this->myGraph[i][j]++;
                 }
             }
             return g;
@@ -180,7 +184,8 @@ namespace ariel {
             size_t size = this->myGraph.size();
             for(int i=0;i<size;i++){
                 for(int j=0;j<size;j++){
-                    this->myGraph[i][j]++;
+                    if(i!=j)
+                        this->myGraph[i][j]++;
                 }
             }
             return *this;
@@ -193,7 +198,8 @@ namespace ariel {
             g.loadGraph(this->myGraph);
             for(int i=0;i<size;i++){
                 for(int j=0;j<size;j++){
-                    this->myGraph[i][j]-=1;
+                    if(i!=j)
+                        this->myGraph[i][j]-=1;
                 }
             }
             return g;
@@ -204,14 +210,15 @@ namespace ariel {
             size_t size = this->myGraph.size();
             for(int i=0;i<size;i++){
                 for(int j=0;j<size;j++){
-                    this->myGraph[i][j]-=1;
+                    if(i!=j)
+                        this->myGraph[i][j]-=1;
                 }
             }
             return *this;
         }
 
 
-        Graph Graph::operator*(Graph &other) const{
+        Graph Graph::operator*(const Graph &other) const{
             if(this->getGraph().size()!=other.getGraph().size())
                 throw string("multiplying this graphs is illegal");
 
@@ -267,7 +274,6 @@ namespace ariel {
         }
 
 }
-
 
 
 
