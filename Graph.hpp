@@ -30,11 +30,11 @@ namespace ariel {
 
 
         //2
-        bool operator<=(Graph &other) const;
+        bool operator<=(const Graph &other) const;
 
         bool operator<(const Graph &other) const;
 
-        bool operator>=(Graph &other) const;
+        bool operator>=(const Graph &other) const;
 
         bool operator>(const Graph &other) const;
 
@@ -63,7 +63,7 @@ namespace ariel {
 
 
         //5
-        Graph operator*(Graph &other) const;
+        Graph operator*(const Graph &other) const;
 
 
         //6
