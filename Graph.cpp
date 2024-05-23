@@ -17,9 +17,11 @@ namespace ariel {
             for (int i = 0; i < myGraph.size(); i++) {
                 for (int j = i; j < myGraph.size(); j++) {
                     if ((myGraph[i][j] && !myGraph[j][i]) || (!myGraph[i][j] && myGraph[j][i]))
-                        edges++;
-                    else if (myGraph[i][j] && myGraph[j][i])
-                        edges += 2;
+                        edges ++;
+                    else if (myGraph[i][j] && myGraph[j][i] && myGraph[i][j]==myGraph[j][i])
+                        edges ++;
+                    else if(myGraph[i][j] && myGraph[j][i] && myGraph[i][j]!=myGraph[j][i])
+                        edges+=2;
 
                 }
             }
