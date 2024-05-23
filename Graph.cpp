@@ -86,7 +86,6 @@ namespace ariel {
 
         bool Graph::operator==(const Graph &other) const{
             if(this->myGraph.size()!=other.myGraph.size()) return false;
-            if(!(this->operator<(other)) && !(this->operator>(other))) return true;
 
             size_t size = myGraph.size();
             for(int i=0;i<size;i++){
