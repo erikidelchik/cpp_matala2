@@ -14,3 +14,4 @@ operator explanetion:
 <= : true if < or ==
 * : multipling 2 graphs, or miltiplying and int on graph
 << : prints the matrix that represents the graph
+
